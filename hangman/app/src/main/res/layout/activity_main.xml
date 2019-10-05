@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="gameViewModel"
+            type="com.example.hangman.viewmodel.GameViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="13dp"
+            android:text='@{gameViewModel.guesses}'
+            android:layout_gravity="end"
+            android:textSize="25sp"/>
+
+        <ImageView
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            app:imageResource='@{gameViewModel.image}'
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="13dp"
+            android:text='@{gameViewModel.word}'
+            android:textSize="42sp"
+            android:layout_gravity="center"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="13dp"
+                android:visibility="@{gameViewModel.alphabetVisibility}">
+
+                <TextView
+                    android:id="@+id/cell_00"
+                    android:text="@string/letter_a"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('a')}"
+                    android:textColor='@{gameViewModel.cells["a"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_01"
+                    android:layout_width="20dp"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_02"
+                    android:text="@string/letter_b"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('b')}"
+                    android:textColor='@{gameViewModel.cells["b"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_03"
+                    android:layout_width="20dp"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_04"
+                    android:text="@string/letter_c"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('c')}"
+                    android:textColor='@{gameViewModel.cells["c"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_05"
+                    android:layout_width="20dp"
+                    android:layout_column="6"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_06"
+                    android:text="@string/letter_d"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="7"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('d')}"
+                    android:textColor='@{gameViewModel.cells["d"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_07"
+                    android:layout_width="20dp"
+                    android:layout_column="8"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_08"
+                    android:text="@string/letter_e"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="9"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('e')}"
+                    android:textColor='@{gameViewModel.cells["e"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_09"
+                    android:layout_width="20dp"
+                    android:layout_column="10"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_010"
+                    android:text="@string/letter_f"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="11"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('f')}"
+                    android:textColor='@{gameViewModel.cells["f"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_011"
+                    android:layout_width="20dp"
+                    android:layout_column="12"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_012"
+                    android:text="@string/letter_g"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="13"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('g')}"
+                    android:textColor='@{gameViewModel.cells["g"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_013"
+                    android:layout_width="20dp"
+                    android:layout_column="14"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_014"
+                    android:text="@string/letter_h"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="15"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('h')}"
+                    android:textColor='@{gameViewModel.cells["h"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_015"
+                    android:layout_width="20dp"
+                    android:layout_column="16"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_016"
+                    android:text="@string/letter_i"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="17"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('i')}"
+                    android:textColor='@{gameViewModel.cells["i"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_017"
+                    android:layout_width="20dp"
+                    android:layout_column="18"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_018"
+                    android:text="@string/letter_j"
+                    android:textAlignment="center"
+                    android:textSize="25sp"
+                    android:layout_width="20dp"
+                    android:layout_column="19"
+                    android:layout_columnWeight="1"
+                    android:layout_row="1"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('j')}"
+                    android:textColor='@{gameViewModel.cells["j"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_10"
+                    android:layout_width="20dp"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_11"
+                    android:text="@string/letter_k"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('k')}"
+                    android:textColor='@{gameViewModel.cells["k"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_12"
+                    android:layout_width="20dp"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_13"
+                    android:text="@string/letter_l"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('l')}"
+                    android:textColor='@{gameViewModel.cells["l"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_14"
+                    android:layout_width="20dp"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_15"
+                    android:text="@string/letter_m"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="6"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('m')}"
+                    android:textColor='@{gameViewModel.cells["m"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_16"
+                    android:layout_width="20dp"
+                    android:layout_column="7"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_17"
+                    android:text="@string/letter_n"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="8"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('n')}"
+                    android:textColor='@{gameViewModel.cells["n"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_18"
+                    android:layout_width="20dp"
+                    android:layout_column="9"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_19"
+                    android:text="@string/letter_o"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="10"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('o')}"
+                    android:textColor='@{gameViewModel.cells["o"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_110"
+                    android:layout_width="20dp"
+                    android:layout_column="11"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_111"
+                    android:text="@string/letter_p"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="12"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('p')}"
+                    android:textColor='@{gameViewModel.cells["p"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_112"
+                    android:layout_width="20dp"
+                    android:layout_column="13"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_113"
+                    android:text="@string/letter_q"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="14"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('q')}"
+                    android:textColor='@{gameViewModel.cells["q"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_114"
+                    android:layout_width="20dp"
+                    android:layout_column="15"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_115"
+                    android:text="@string/letter_r"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="16"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('r')}"
+                    android:textColor='@{gameViewModel.cells["r"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_116"
+                    android:layout_width="20dp"
+                    android:layout_column="17"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_117"
+                    android:text="@string/letter_s"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="18"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('s')}"
+                    android:textColor='@{gameViewModel.cells["s"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_118"
+                    android:layout_width="20dp"
+                    android:layout_column="19"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_20"
+                    android:layout_width="20dp"
+                    android:layout_column="1"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_21"
+                    android:layout_width="20dp"
+                    android:layout_column="2"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_22"
+                    android:layout_width="20dp"
+                    android:layout_column="3"
+                    android:layout_columnWeight="1"
+                    android:layout_row="2"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_23"
+                    android:text="@string/letter_t"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="4"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('t')}"
+                    android:textColor='@{gameViewModel.cells["t"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_24"
+                    android:layout_width="20dp"
+                    android:layout_column="5"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_25"
+                    android:text="@string/letter_u"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="6"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('u')}"
+                    android:textColor='@{gameViewModel.cells["u"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_26"
+                    android:layout_width="20dp"
+                    android:layout_column="7"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_27"
+                    android:text="@string/letter_v"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="8"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('v')}"
+                    android:textColor='@{gameViewModel.cells["v"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_28"
+                    android:layout_width="20dp"
+                    android:layout_column="9"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_29"
+                    android:text="@string/letter_w"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="10"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('w')}"
+                    android:textColor='@{gameViewModel.cells["w"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_210"
+                    android:layout_width="20dp"
+                    android:layout_column="11"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_211"
+                    android:text="@string/letter_x"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="12"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('x')}"
+                    android:textColor='@{gameViewModel.cells["x"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_212"
+                    android:layout_width="20dp"
+                    android:layout_column="12"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_213"
+                    android:text="@string/letter_y"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="14"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('y')}"
+                    android:textColor='@{gameViewModel.cells["y"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_214"
+                    android:layout_width="20dp"
+                    android:layout_column="15"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_215"
+                    android:text="@string/letter_z"
+                    android:textSize="25sp"
+                    android:textAlignment="center"
+                    android:layout_width="20dp"
+                    android:layout_column="16"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"
+                    android:onClick="@{() -> gameViewModel.onClickedCell('z')}"
+                    android:textColor='@{gameViewModel.cells["z"]}'/>
+
+                <TextView
+                    android:id="@+id/cell_216"
+                    android:layout_width="20dp"
+                    android:layout_column="5"
+                    android:layout_columnWeight="17"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_217"
+                    android:layout_width="20dp"
+                    android:layout_column="18"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+                <TextView
+                    android:id="@+id/cell_218"
+                    android:layout_width="20dp"
+                    android:layout_column="19"
+                    android:layout_columnWeight="1"
+                    android:layout_row="3"
+                    android:layout_rowWeight="1"/>
+
+            </GridLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{gameViewModel.message}"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:textSize="42sp"
+                android:visibility="@{gameViewModel.messageVisibility}"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_game"
+                android:onClick="@{() -> gameViewModel.newGame()}"
+                android:layout_gravity="bottom|center_horizontal"
+                android:visibility="@{gameViewModel.messageVisibility}"/>
+
+        </FrameLayout>
+    </LinearLayout>
+</layout>
